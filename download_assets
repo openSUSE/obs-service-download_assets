@@ -2,6 +2,12 @@
 # A small wrapper to make download_assets from the build script usable
 # via a source service.
 
+# config options for this host ?
+[[ -f /etc/obs/services/download_assets ]] && . /etc/obs/services/download_assets
+
+# config options for this user ?
+[[ -f "$HOME"/.obs/download_assets ]] && . "$HOME"/.obs/download_assets
+
 while test $# -gt 0; do
   case $1 in
     --outdir)
@@ -22,5 +28,10 @@ if [[ ! -d "${MYOUTDIR}" ]]; then
   exit 1
 fi
 
-exec /usr/lib/build/download_assets --outdir "$MYOUTDIR" .
+CACHE=""
+if [ -n "$CACHEDIRECTORY" ]; then
+  CACHE="--assetdir $CACHEDIRECTORY"
+fi
+
+exec /usr/lib/build/download_assets $CACHE --outdir "$MYOUTDIR" .
 
