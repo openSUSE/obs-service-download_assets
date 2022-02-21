@@ -10,3 +10,17 @@ with OBS native source management.
 
 The service can be used per package or project wide.
 
+A global caching can get configured via defining 
+
+CACHEDIRECTORY="/some/directory"
+
+either in
+
+  /etc/obs/services/download_assets
+
+or
+
+  ~/.obs/download_assets
+
+Please note that there is no cleanup implemented yet.
+
