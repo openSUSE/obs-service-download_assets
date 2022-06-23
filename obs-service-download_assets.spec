@@ -17,7 +17,7 @@
 
 
 Name:           obs-service-download_assets
-Version:        0.1
+Version:        0.2
 Release:        0
 Summary:        An OBS source service: Wrapper for download_assets
 License:        GPL-2.0-or-later
@@ -27,6 +27,8 @@ Requires:       build >= 20220221
 Source1:        download_assets
 Source2:        download_assets.service
 Source3:        download_assets.rc
+Source4:        clean_assets
+Source5:        clean_assets.service
 BuildArch:      noarch
 
 %description
@@ -41,6 +43,8 @@ via a source service.
 mkdir -p %{buildroot}%{_prefix}/lib/obs/service
 install -m 0755 %{S:1} %{buildroot}%{_prefix}/lib/obs/service
 install -m 0644 %{S:2} %{buildroot}%{_prefix}/lib/obs/service
+install -m 0755 %{S:4} %{buildroot}%{_prefix}/lib/obs/service
+install -m 0644 %{S:5} %{buildroot}%{_prefix}/lib/obs/service
 
 mkdir -p %{buildroot}%{_sysconfdir}/obs/services
 install -m 0644 %{S:3} %{buildroot}%{_sysconfdir}/obs/services
