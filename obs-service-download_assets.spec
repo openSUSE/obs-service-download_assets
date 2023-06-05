@@ -1,7 +1,7 @@
 #
 # spec file for package obs-service-download_assets
 #
-# Copyright (c) 2022 SUSE LLC
+# Copyright (c) 2023 SUSE LLC
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -29,6 +29,8 @@ Source2:        download_assets.service
 Source3:        download_assets.rc
 Source4:        clean_assets
 Source5:        clean_assets.service
+Source10:       COPYING
+Source11:       README.md
 BuildArch:      noarch
 
 %description
@@ -36,6 +38,7 @@ A small wrapper to make download_assets from the build script usable
 via a source service.
 
 %prep
+%setup -n %_sourcedir -D -T 0
 
 %build
 
@@ -50,7 +53,8 @@ mkdir -p %{buildroot}%{_sysconfdir}/obs/services
 install -m 0644 %{S:3} %{buildroot}%{_sysconfdir}/obs/services
 
 %files
-%defattr(-,root,root)
+%license COPYING
+%doc README.md
 %dir %{_prefix}/lib/obs
 %{_prefix}/lib/obs/service
 %dir %{_sysconfdir}/obs
