@@ -50,7 +50,8 @@ mkdir -p %{buildroot}%{_sysconfdir}/obs/services
 install -m 0644 %{S:3} %{buildroot}%{_sysconfdir}/obs/services
 
 %files
-%defattr(-,root,root)
+%license COPYING
+%doc README.md
 %dir %{_prefix}/lib/obs
 %{_prefix}/lib/obs/service
 %dir %{_sysconfdir}/obs
