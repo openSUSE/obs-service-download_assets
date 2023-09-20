@@ -24,6 +24,7 @@ License:        GPL-2.0-or-later
 Group:          Development/Tools/Building
 URL:            http://build.opensuse.org/
 Requires:       build >= 20220221
+Requires:       perl(LWP::UserAgent)
 Source1:        download_assets
 Source2:        download_assets.service
 Source3:        download_assets.rc
