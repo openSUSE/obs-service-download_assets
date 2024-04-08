@@ -1,7 +1,7 @@
 #
 # spec file for package obs-service-download_assets
 #
-# Copyright (c) 2023 SUSE LLC
+# Copyright (c) 2024 SUSE LLC
 #
 # All modifications and additions to the file contributed by third parties
 # remain the property of their copyright owners, unless otherwise agreed
@@ -39,7 +39,8 @@ A small wrapper to make download_assets from the build script usable
 via a source service.
 
 %prep
-%setup -n %_sourcedir -D -T 0
+%setup -c -D -T
+cp %{S:10} %{S:11} .
 
 %build
 
